@@ -1029,8 +1029,9 @@ checksum = "0b0b36cbb4e6704f12f5b5d7b01dac593982c6550859ebd5a66fb15c9ea27fd5"
 
 [[package]]
 name = "kornia-algebra"
-version = "0.1.15-rc.5"
-source = "git+https://github.com/kornia/kornia-rs?tag=v0.1.15-rc.5#3ee6dfe40bcdad7077c77f8d16d8c5bea8240f0f"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "38badefbffb6b402e956af3908ea1658438e692502db5d7f01d9798f63e1a3af"
 dependencies = [
  "glam 0.33.2",
  "nalgebra",
@@ -1044,7 +1045,20 @@ version = "0.1.15-rc.5"
 source = "git+https://github.com/kornia/kornia-rs?tag=v0.1.15-rc.5#3ee6dfe40bcdad7077c77f8d16d8c5bea8240f0f"
 dependencies = [
  "cudarc",
- "kornia-tensor",
+ "kornia-tensor 0.1.15-rc.5",
+ "num-traits",
+ "rayon",
+ "thiserror 2.0.19",
+]
+
+[[package]]
+name = "kornia-image"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7baeb89055e61de6ca0580e9dd04893052ff4da619836f993dd7ec998b4a128b"
+dependencies = [
+ "cudarc",
+ "kornia-tensor 0.2.0",
  "num-traits",
  "rayon",
  "thiserror 2.0.19",
@@ -1052,14 +1066,15 @@ dependencies = [
 
 [[package]]
 name = "kornia-imgproc"
-version = "0.1.15-rc.5"
-source = "git+https://github.com/kornia/kornia-rs?tag=v0.1.15-rc.5#3ee6dfe40bcdad7077c77f8d16d8c5bea8240f0f"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3eeca083d17c225e16b40dde8153d00e846a655c9d250e8690ce6a9ee22070cb"
 dependencies = [
  "cudarc",
  "half",
  "kornia-algebra",
- "kornia-image",
- "kornia-tensor",
+ "kornia-image 0.2.0",
+ "kornia-tensor 0.2.0",
  "num-traits",
  "rayon",
  "thiserror 2.0.19",
@@ -1068,13 +1083,14 @@ dependencies = [
 
 [[package]]
 name = "kornia-io"
-version = "0.1.15-rc.5"
-source = "git+https://github.com/kornia/kornia-rs?tag=v0.1.15-rc.5#3ee6dfe40bcdad7077c77f8d16d8c5bea8240f0f"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d6c8ffe23b6781f704817483d051af459078446b0c79b53b816b87f2d32cf69c"
 dependencies = [
  "image-webp",
  "jpeg-encoder",
- "kornia-image",
- "kornia-tensor",
+ "kornia-image 0.2.0",
+ "kornia-tensor 0.2.0",
  "little_exif",
  "log",
  "png",
@@ -1087,6 +1103,18 @@ dependencies = [
 name = "kornia-tensor"
 version = "0.1.15-rc.5"
 source = "git+https://github.com/kornia/kornia-rs?tag=v0.1.15-rc.5#3ee6dfe40bcdad7077c77f8d16d8c5bea8240f0f"
+dependencies = [
+ "cudarc",
+ "num-traits",
+ "rayon",
+ "thiserror 2.0.19",
+]
+
+[[package]]
+name = "kornia-tensor"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2e7dc445092435019b0fe1599c95ab4c23aa17f1a8a092403c08765cf059d06a"
 dependencies = [
  "cudarc",
  "num-traits",
@@ -1623,8 +1651,8 @@ dependencies = [
  "cudarc",
  "gstreamer 0.20.7",
  "gstreamer-app 0.20.7",
- "kornia-image",
- "kornia-tensor",
+ "kornia-image 0.1.15-rc.5",
+ "kornia-tensor 0.1.15-rc.5",
  "nvbuf-sys",
  "sensor-types",
  "thiserror 2.0.19",
@@ -1984,7 +2012,9 @@ version = "0.1.0"
 dependencies = [
  "cudarc",
  "half",
- "kornia-tensor",
+ "kornia-image 0.2.0",
+ "kornia-imgproc",
+ "kornia-tensor 0.2.0",
  "log",
  "thiserror 2.0.19",
  "trt-sys",
@@ -1995,9 +2025,9 @@ name = "vrt-dinov3"
 version = "0.1.0"
 dependencies = [
  "cudarc",
- "kornia-image",
+ "kornia-image 0.2.0",
  "kornia-imgproc",
- "kornia-tensor",
+ "kornia-tensor 0.2.0",
  "thiserror 2.0.19",
  "vrt",
 ]
@@ -2016,8 +2046,8 @@ name = "vrt-types"
 version = "0.1.0"
 dependencies = [
  "cudarc",
- "kornia-image",
- "kornia-tensor",
+ "kornia-image 0.2.0",
+ "kornia-tensor 0.2.0",
  "thiserror 2.0.19",
 ]
 
@@ -2028,7 +2058,7 @@ dependencies = [
  "gif",
  "gstreamer 0.25.3",
  "gstreamer-app 0.25.2",
- "kornia-image",
+ "kornia-image 0.2.0",
  "kornia-io",
  "thiserror 2.0.19",
  "vrt-track",
