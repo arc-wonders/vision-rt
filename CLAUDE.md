@@ -4,7 +4,7 @@ Standalone Rust TensorRT inference + real-time vision **algorithm libraries**
 for Jetson Orin (aarch64, SM87, TensorRT 10.3.x, CUDA 12.6). Pure libraries — no
 orchestration framework, no bubbaloop dependency. Sensor drivers live in the
 separate `sensor-rt` repo; GPU image/tensor types come from `kornia-rs`
-(pinned git dep, `cudarc` feature).
+(the crates.io release, `cuda` feature).
 
 ## Workspace layout
 
