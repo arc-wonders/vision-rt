@@ -41,11 +41,12 @@ cudarc = { version = "0.19", default-features = false, features = [
   "fallback-latest",
 ] }
 # kornia GPU image/tensor types — the `cuda` feature enables the device backend +
-# custom kernels. Git-pinned to a fixed cuda-preprocess rev (reproducible build).
-kornia-image   = { git = "https://github.com/kornia/kornia-rs", branch = "main", features = ["cuda"] }
-kornia-tensor  = { git = "https://github.com/kornia/kornia-rs", branch = "main", features = ["cuda"] }
-kornia-imgproc = { git = "https://github.com/kornia/kornia-rs", branch = "main", features = ["cuda"] }
-kornia-io      = { git = "https://github.com/kornia/kornia-rs", branch = "main" }
+# custom kernels. The crates.io release: every kornia line in the stack (flux, sensor-rt)
+# must name the same version, or Image/Tensor split into two types.
+kornia-image   = { version = "0.1.15", features = ["cuda"] }
+kornia-tensor  = { version = "0.1.15", features = ["cuda"] }
+kornia-imgproc = { version = "0.1.15", features = ["cuda"] }
+kornia-io      = "0.1.15"
 # Linear algebra for the benchmark examples, so the harness shares kornia's Mat3/Vec3
 # types rather than hand-rolling matrix code.
 #
@@ -54,7 +55,7 @@ kornia-io      = { git = "https://github.com/kornia/kornia-rs", branch = "main" 
 # tracing-subscriber) for roughly twenty lines of arithmetic, and CLAUDE.md caps this box
 # at `-j2` because parallel template builds OOM it. The two functions are reproduced in
 # `examples/common`, with the kornia definitions cited.
-kornia-algebra = { git = "https://github.com/kornia/kornia-rs", branch = "main" }
+kornia-algebra = "0.1.15"
 
 [workspace.package]
 version = "0.1.0"
